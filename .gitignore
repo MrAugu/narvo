@@ -1,0 +1,10 @@
+# Node Modules
+mode_modules
+
+# Private Stuff (Shh...)
+conf.js
+
+# Testing Stuff
+bot.js
+commands
+events
