@@ -1,0 +1,36 @@
+{
+  "name": "discordjs-addon",
+  "version": "0.0.1",
+  "description": "A small addon for small discord.js bots.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrAugu/discordjs-addon.git"
+  },
+  "keywords": [
+    "discord.js",
+    "discordjs",
+    "node",
+    "node.js",
+    "nodejs",
+    "discord",
+    "bot",
+    "addon",
+    "framework"
+  ],
+  "author": "MrAugu#9016",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrAugu/discordjs-addon/issues"
+  },
+  "homepage": "https://github.com/MrAugu/discordjs-addon#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "klaw": "^3.0.0",
+    "ora": "^3.0.0",
+    "path": "^0.12.7"
+  }
+}
