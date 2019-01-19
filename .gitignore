@@ -1,5 +1,5 @@
 # Node Modules
-mode_modules
+node_modules/
 
 # Private Stuff (Shh...)
 conf.js
