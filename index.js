@@ -1,8 +1,13 @@
-const Client = require("./classes/NarvoClient");
-const metaData = require("./package.json");
-
 module.exports = {
-  Client: Client,
-  version: `v${metaData.version}`,
-  realVersion: metaData.version
+  // Client
+  Client: require("./classes/NarvoClient"),
+  NarvoClient: require("./classes/NarvoClient"),
+
+  // Commands
+  Command: require("./classes/Command"),
+  NarvoCommand: require("./classes/Command"),
+
+  // Metadata
+  version: require("./package.json").version,
+  author: require("./package.json").author
 };

@@ -1,5 +1,5 @@
 {
-  "name": "discordjs-addon",
+  "name": "narvo",
   "version": "0.0.1",
   "description": "A small addon for small discord.js bots.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrAugu/discordjs-addon.git"
+    "url": "git+https://github.com/MrAugu/narvo.git"
   },
   "keywords": [
     "discord.js",
@@ -24,9 +24,9 @@
   "author": "MrAugu#9016",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MrAugu/discordjs-addon/issues"
+    "url": "https://github.com/MrAugu/narvo/issues"
   },
-  "homepage": "https://github.com/MrAugu/discordjs-addon#readme",
+  "homepage": "https://github.com/MrAugu/narvo#readme",
   "dependencies": {
     "colors": "^1.3.3",
     "discord.js": "^11.4.2",
