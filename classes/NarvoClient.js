@@ -10,26 +10,19 @@ class NarvoClient extends Client {
 
     /**
      * Category: Client Configuration
-     * @property {string} commandsDirectory - Path of the folder command files are in.
-     * @property {string} eventsDirectory - Path of the folder event files are in.
      * @property {string} prefix - Prefix your bot can be called with.
      * @property {boolean} mentionPrefix - Wether your bot can be called both with prefix and mention.
      * @property {string} botOwner - An id of bot's owner.
      * @property {object} botAdmins - An array of bot's admins IDs.
      * @property {object} clientOptions - Discord's Client options such as disableEveryone, fetchAllMembers, etc are being placed in clientOptions object.
     */
-
-
-    this.commandsDirectory = options.commandsDirectory || null;
-    this.eventsDirectory = options.eventsDirectory || null;
+   
     this.prefix = options.prefix || ".";
     this.mentionPrefix = options.mentionPrefix || false;
     this.botOwner = options.botOwner || null;
     this.botAdmins = options.botAdmins || [];
     this.clientOptions = options.clientOptions || {};
-    
-    if (typeof this.commandsDirectory !== "string") throw new TypeError("this.client.options.commandsDirectory must be a string.");
-    if (typeof this.eventsDirectory !== "string") throw new TypeError("this.client.options.eventsDirectory must be a string.");
+
     if (typeof this.prefix !== "string") throw new TypeError("this.client.options.prefix must be a string.");
     if (typeof this.mentionPrefix !== "boolean") throw new TypeError("this.client.options.mentionPrefix must be a boolean.");
     if (typeof this.botOwner !== "string") throw new TypeError("this.client.options.botOwner must be a string.");
@@ -40,6 +33,10 @@ class NarvoClient extends Client {
     this.logger = Logger;
   }
 
+  /**
+   * @param {string} id - Discord user id.
+   * @returns {boolean} - If action suceed returns true if failed returns false.
+   */
   isOwner (id) {
     if (id === this.botOwner) {
       return true;
@@ -48,6 +45,10 @@ class NarvoClient extends Client {
     }
   }
 
+  /**
+   * @param {string} id - Discord user id.
+   * @returns {boolean} - If action suceed returns true if failed returns false.
+   */
   isAdmin (id) {
     if (this.botAdmins.includes(id)) {
       return true;
