@@ -1,3 +1,3 @@
 ## To Do List
-- {} Re-Implement Initialization
-- {} Make client.options.clientOptions Work
+- [] Re-Implement Initialization
+- [] Make client.options.clientOptions Work
