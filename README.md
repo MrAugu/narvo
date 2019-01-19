@@ -10,7 +10,7 @@ const client = new Client({
   eventsDirectory: "./events",
   prefix: "-",
   mentionPrefix: false,
-  botOwner: ",
+  botOwner: "414764511489294347",
   botAdmins: []
 });
 
