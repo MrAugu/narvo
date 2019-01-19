@@ -1,5 +1,5 @@
 const { Client, Collection } = require("discord.js");
-const Ora = require("ora");
+const Logger = require("../modules/logger");
 const path = require("path");
 const klaw = require("klaw"); // eslint-disable-line no-unused-vars
 const readdir = require("util").promisify(require("fs").readdir); // eslint-disable-line no-unused-vars
@@ -37,7 +37,7 @@ class NarvoClient extends Client {
     if (typeof this.clientOptions !== "object") throw new TypeError("this.client.options.clientOptions must be an object.");
     this.commands = new Collection();
     this.aliases = new Collection();
-    this.logger = Ora;
+    this.logger = Logger;
   }
 
   isOwner (id) {
@@ -64,11 +64,7 @@ class NarvoClient extends Client {
   async loadCommand (cmdPath, cmdName) {
     try {
       const props = new (require(`${cmdPath}${path.sep}${cmdName}`))(this);
-      const log = this.logger(`Loading Cmd: ${props.help.name}`).start();
-
-      setTimeout(() => {
-        log.succeed(`Loaded Command: ${props.help.name}`);
-      }, 1500);
+      this.logger.log(`Loading Cmd: ${props.help.name}`);
 
       props.conf.location = cmdPath;
 
@@ -117,7 +113,7 @@ class NarvoClient extends Client {
 
   // Initialization should be moved to other file, and paths fixed. In this measure module its unable to reach command and event folders specified.
 
-  /* async initialize (client) {
+  async initialize (client) {
     klaw(this.commandsDirectory).on("data", (item) => {
       const cmdFile = path.parse(item.path);
       if (!cmdFile.ext || cmdFile.ext !== ".js") return;
@@ -126,23 +122,18 @@ class NarvoClient extends Client {
     });
   
     const evtFiles = await readdir(this.eventsDirectory);
-    const log1 = client.logger(`Loading a total of ${evtFiles.length} events.`).start();
-    log1.succeed(`Loading a total of ${evtFiles.length} events.`);
+    client.logger.log(`Loading a total of ${evtFiles.length} events.`);
 
     evtFiles.forEach(file => {
       console.log(file);
       const eventName = file.split(".")[0];
-      const log2 = client.logger(`Loading Event: ${eventName}`).start();
-
-      setTimeout(() => {
-        log2.succeed(`Loaded Event: ${eventName}`);
-      }, 1500);
+      client.logger.log(`Loading Event: ${eventName}`);
 
       const event = new (require(`${this.eventsDirectory}/${file}`))(client);
       client.on(eventName, (...args) => event.run(...args));
       delete require.cache[require.resolve(`${this.eventsDirectory}/${file}`)];
     });
-  }*/
+  }
 
   /**
    * @param {DiscordClient} client - The client itself.
